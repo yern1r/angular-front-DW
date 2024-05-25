@@ -1,5 +1,17 @@
-<div>
-  <app-header></app-header>
-  <app-home-page></app-home-page>
-  <!-- <app-footer></app-footer> -->
-</div>
+<!-- <ng-container *ngIf="pageIsLoaded; else appPreloader">
+  <div *ngIf="moduleIsLoading || pageIsPreloading"
+       class="module-preloader blurred-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #appPreloader>
+  <div class="app-preloader">
+    <img src="../assets/images/loading.gif"
+         alt="preloader">
+  </div>
+</ng-template> -->
+<app-home-page></app-home-page>

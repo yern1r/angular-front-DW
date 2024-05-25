@@ -1,12 +1,39 @@
-<div class="wrapper">
-    <h1>
-        Header
-    </h1>
-    <nav am-layout="horizontal">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Products</a>
-    <a href="#">Contact</a>
-    </nav>
-</div>
+<header>
+  <div class="container" *ngIf="headerShow">
+    <div class="header-left">
+      <img
+        src="../../../../../../assets/images/logo.png"
+        class="logo"
+        alt="logo"
+        (click)="navigateToMainPage()"
+      />
 
+      <div class="menu-items" fxLayout="row">
+        <div class="header-menu">
+          <li
+            class="qazaq-til header_bottom_link"
+            [class.active_url]="pageIsMain"
+          >
+            <a (click)="navigateToMainPage()">qazaq-dastur</a>
+          </li>
+          <li class="qazaq-tarih">
+            <a (click)="(2)">qazaq-tarih</a>
+            
+          </li>
+          <li class="qazaq-dastur">
+            <a (click)="(3)">qazaq-til</a>
+          </li>
+        </div>
+      </div>
+    </div>  
+      <div class="container2">
+        <div class="header-right">
+          <div class="login-block">
+            <button *ngIf="isSignUp" (click)="logIn()"><span>Log In</span></button>
+            <button (click)="signUp()"><span>Sign Up</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</header>
