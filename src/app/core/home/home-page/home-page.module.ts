@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { QazaqTilPageComponent } from '../language/qazaq-til-page.component';
 import { HomePageFooterComponent } from './footer/home-page-footer/home-page-footer.component';
 import { HomePageHeaderComponent } from './header/home-page-header/home-page-header.component'; // Importing HomePageHeaderComponent
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   imports: [
@@ -20,12 +21,15 @@ import { HomePageHeaderComponent } from './header/home-page-header/home-page-hea
   declarations: [
     QazaqTilPageComponent,
     HomePageFooterComponent,
-    HomePageHeaderComponent // Declare HomePageHeaderComponent
+    HomePageHeaderComponent, // Declare HomePageHeaderComponent
+    HomePageComponent,
+    
   ],
   exports: [
     QazaqTilPageComponent,
     HomePageFooterComponent,
-    HomePageHeaderComponent // Export if needed elsewhere
+    HomePageHeaderComponent, // Export if needed elsewhere
+    HomePageComponent,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' }
