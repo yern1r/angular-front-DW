@@ -11,29 +11,27 @@
       <div class="menu-items" fxLayout="row">
         <div class="header-menu">
           <li
-            class="qazaq-til header_bottom_link"
+            class="qazaq-dastur header_bottom_link"
             [class.active_url]="pageIsMain"
           >
-            <a (click)="navigateToMainPage()">qazaq-dastur</a>
+            <a (click)="navigateToDasturPage()">qazaq-dastur</a>
           </li>
           <li class="qazaq-tarih">
-            <a (click)="(2)">qazaq-tarih</a>
-            
+            <a (click)="navigateToTarihPage()">qazaq-tarih</a>
           </li>
-          <li class="qazaq-dastur">
-            <a (click)="(3)">qazaq-til</a>
+          <li class="qazaq-til">
+            <a (click)="navigateToTilPage()">qazaq-til</a>
           </li>
-        </div>
-      </div>
-    </div>  
-      <div class="container2">
-        <div class="header-right">
-          <div class="login-block">
-            <button *ngIf="isSignUp" (click)="logIn()"><span>Log In</span></button>
-            <button (click)="signUp()"><span>Sign Up</span></button>
-          </div>
         </div>
       </div>
     </div>
-  
+    <div class="container2">
+      <div class="header-right">
+        <div class="login-block">
+          <button *ngIf="isSignUp" (click)="logIn()"><span>Log In</span></button>
+          <button (click)="signUp()"><span>Sign Up</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>

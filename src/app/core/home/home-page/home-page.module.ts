@@ -1,21 +1,34 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { QazaqTilPageComponent } from '../language/qazaq-til-page.component';
+import { HomePageFooterComponent } from './footer/home-page-footer/home-page-footer.component';
+import { HomePageHeaderComponent } from './header/home-page-header/home-page-header.component'; // Importing HomePageHeaderComponent
+
 @NgModule({
-    imports: [
-      CommonModule,
-      FormsModule,
-      RouterModule,
-      MatDialogModule,
-      MatIconModule
-    ],
-    exports: [  ],
-    declarations: [ ],
-    providers: [
-      { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' }]
-  })
-  export class HomePage { }
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    MatDialogModule,
+    MatIconModule
+  ],
+  declarations: [
+    QazaqTilPageComponent,
+    HomePageFooterComponent,
+    HomePageHeaderComponent // Declare HomePageHeaderComponent
+  ],
+  exports: [
+    QazaqTilPageComponent,
+    HomePageFooterComponent,
+    HomePageHeaderComponent // Export if needed elsewhere
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' }
+  ]
+})
+export class HomePageModule { }

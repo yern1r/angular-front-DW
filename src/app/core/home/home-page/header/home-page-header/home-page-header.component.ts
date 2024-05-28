@@ -7,7 +7,7 @@ import { SignUpModalComponent } from '../../../../auth/sign-up-modal/sign-up-mod
 @Component({
   selector: 'app-home-page-header',
   templateUrl: './home-page-header.component.html',
-  styleUrl: './home-page-header.component.scss'
+  styleUrls: ['./home-page-header.component.scss']
 })
 export class HomePageHeaderComponent implements OnInit {
 
@@ -15,30 +15,42 @@ export class HomePageHeaderComponent implements OnInit {
   headerShow = true;
   currentUser = null;
   isSignUp = false;
+
   constructor(
     private router: Router,
     private translate: TranslateService,
     private dialog: MatDialog,
-  ){}
+  ) { }
 
   ngOnInit(): void {
-    if (this.router.url !== '/') {
-      this.pageIsMain = false;
-    }
+    this.pageIsMain = this.router.url === '/';
   }
 
   logIn(): void {
     this.dialog.open(SignUpModalComponent, {
       data: {}
     });
-  }  
-  signUp(){
+  }
+
+  signUp(): void {
     this.dialog.open(SignUpModalComponent, {
       data: {}
     });
   }
 
-  public navigateToMainPage(): void {
+  navigateToMainPage(): void {
     this.router.navigate(['/']).then();
+  }
+
+  navigateToDasturPage(): void {
+    this.router.navigate(['/']).then();
+  }
+
+  navigateToTarihPage(): void {
+    this.router.navigate(['/']).then();
+  }
+
+  navigateToTilPage(): void {
+    this.router.navigate(['/qazaqTili']).then();
   }
 }

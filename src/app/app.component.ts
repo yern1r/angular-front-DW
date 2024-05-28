@@ -26,8 +26,8 @@ export class AppComponent  extends DestroyableComponent implements OnInit, OnDes
     private router: Router,
     private matDialog: MatDialog,) 
     {
-    translate.setDefaultLang('en');
-    translate.use('en');
+    // translate.setDefaultLang('en');
+    // translate.use('en');
     super();
     this.userIdleSub$ = new Subject<void>();
     this.pagePreloadingTime = 2000;
@@ -38,7 +38,7 @@ export class AppComponent  extends DestroyableComponent implements OnInit, OnDes
     this.setModuleLoadFlag(false);
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   private setPageLoadFlag(flag: boolean): void {
