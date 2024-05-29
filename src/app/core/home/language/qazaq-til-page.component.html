@@ -1,50 +1,359 @@
+<app-home-page-header></app-home-page-header>
+
 <div class="container">
-
-    <div class="upperPart">
-        <div class="title-qazaq-tili">
-            <h1>Qazaq Tili</h1>
-        </div>
-    
-        <div class="upperQuotes">
-            <div class="firstQuote">
-                <p>Сырлы тіл, жырлы тіл, нұрлы тіл - қазақ тілін ғасырлар бойы қастерлеп сақтағандарыңыз үшін, қазақ бауырлар, сіздерге бек зор рахмет!
-
-                    Ілмектер: Сырлы тіл, жырлы тіл, нұрлы тіл, қазақ тілі, тіл
-                    Хасан Туфан</p>
-            </div>
-            <div class="secondQuote">
-                <p>Қазақ тілі - түркі тілдерінің ішіндегі ең таза әрі бай тіл.</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="lowerPart">
-        <div class="content">
-            <div class="left-panel">
-
-            </div>
-            <div class="right-material">
-
-                <div class="content-material">
-
-                </div>
-
-                <div class="buttons">
-                    <button>
-                        take quiz
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="lowerQuote">
-            <p>Ғылыми, әдеби тілдік және тарихи тұрғыдан қарағанда қазақ тілі - түркі тілдерінің ішіндегі өте әсем, өте бай тілдердің бірі.
-
-                Ілмектер: қазақ тілі, тіл, түркі тілдері
-                Йоханнес Бенцинг</p>
-        </div>
+  <div class="upperPart">
+    <div class="title-qazaq-tili">
+      <div class="word">
+        <h1>Qazaq</h1>
+      </div>
+      <div class="word2">
+        <h1>Tili</h1>
+      </div>
     </div>
 
+    <div class="upperQuotes">
+      <div class="firstQuote">
+        <div class="box">
+          <div class="box-inner">
+            <p>
+              Сырлы тіл, жырлы тіл, нұрлы тіл - қазақ тілін ғасырлар бойы
+              қастерлеп сақтағандарыңыз үшін, қазақ бауырлар, сіздерге бек зор
+              рахмет!
+            </p>
+            <div class="author">
+              <img src="../../../../assets/images/Tufan.jpg" />
+              <p>Хасан Туфан</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="secondQuote">
+        <div class="box">
+          <div class="box-inner">
+            <p>Қазақ тілі - түркі тілдерінің ішіндегі ең таза әрі бай тіл.</p>
+            <div class="author">
+              <img src="../../../../assets/images/platon.jpeg" />
+              <p>Платон Мелиоранский</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="middlePart">
+    <div class="left-panel">
+      <div class="buttons-titles">
+        <div class="section">
+          <img
+            src="../../../../assets/images/023ae96a-c781-4865-9e7b-6de2842a56d2.jpg"
+            alt=""
+          />
+          <button
+            class="button"
+            (click)="showGrammaticaMaterial()"
+            [class.active]="isGrammatica"
+          >
+            Grammatica
+          </button>
+        </div>
+
+        <div class="section">
+          <img
+            src="../../../../assets/images/36fa8155-3eb5-49ca-b2e2-654629927e26.jpg"
+            alt=""
+          />
+          <button
+            class="button"
+            (click)="showSozdikMaterial()"
+            [class.active]="isSozdik"
+          >
+            Sozdik
+          </button>
+        </div>
+
+        <div class="section">
+          <img
+            src="../../../../assets/images/511e83e4-5b57-4fca-9766-9cb8a5dc03a1.jpg"
+            alt=""
+          />
+          <button
+            class="button"
+            (click)="showPhrazakMaterial()"
+            [class.active]="isPhraza"
+          >
+            Phraza
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-material">
+      <div class="content-material">
+        <div class="instructions" *ngIf="isNotClicked">
+          <div class="header-info">
+            <mat-icon> info </mat-icon>
+            <h1 style="color: #dc1b23">Instructions</h1>
+          </div>
+
+          <p>
+            This section aims to provide comprehensive insights into the grammar
+            of the language. From sound classification to syllable structure and
+            stress patterns, you'll gain a deeper understanding of the
+            language's grammatical nuances.
+          </p>
+          <p>
+            The goal of this section is to expand your vocabulary on various
+            topics. From weather-related terms to everyday activities, you'll
+            discover new words and phrases that will enrich your language
+            skills.
+          </p>
+          <p>
+            This section aims to equip you with essential phrases for social
+            interactions and introductions. Whether you're greeting someone,
+            introducing yourself, or engaging in basic conversation, you'll
+            learn phrases that are fundamental for communication.
+          </p>
+        </div>
+
+        <mat-accordion>
+          <mat-expansion-panel class="GrammaticaMaterial" *ngIf="isGrammatica">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <b>Дыбыстардың бөлінуі - Классификация звуков.</b>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="learn-material">
+              <table style="border-collapse: collapse; width: 100%">
+                <tbody>
+                  <tr>
+                    <td style="border: 1px solid black">Түрлері (Виды)</td>
+                    <td style="border: 1px solid black">Дыбыстар (Звуки)</td>
+                    <td style="border: 1px solid black">
+                      Ерекше (тән) дыбыстар (Специфические звуки)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black">
+                      1. Дауысты дыбыстар (Гласные звуки)
+                    </td>
+                    <td style="border: 1px solid black">
+                      Жалаң: а, ө, о, е(Монофтонг) ұ, ү, ы, і <br />
+                      Дифтонг: и, у <br />
+                      Орыс тілінен енген: э, ё, ю, я
+                    </td>
+                    <td style="border: 1px solid black">ә, ө, і, ұ, ү</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black">
+                      2. Дауыссыз дыбыстар (Согласные звуки)
+                    </td>
+                    <td style="border: 1px solid black">
+                      б, в, г, ғ, д, ж, з, й, к, қ, л, м, н, ң, п, р, с, т, ф,
+                      х, ц, ч, ш, щ, һ, (у), екі белгі: ь, ъ
+                    </td>
+                    <td style="border: 1px solid black">қ, ғ, ң, һ</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <p><b>Буын - Слог.</b></p>
+              <p>
+                Слог - это гласный звук или несколько звуков в слове, которые в
+                процессе говорения произносятся одним толчком воздуха. Слоги,
+                состоящие из двух и более звуков, могут оканчиваться либо на
+                гласный /открытые слоги: а-на (мать) - а-та, либо на согласные
+                полузакрытые слоги: от-огонь, өрт- пожар, либо начало и конец
+                слога закрыты согласными/ закрытые слоги: тас-камень, кен -
+                руда.
+              </p>
+              <p>
+                Основным правилом слогоделения является следующее. Если на
+                слоговой границе, т.е. между гласными, стоит один согласный, то
+                он относится к следующему слогу /ә-ке, ә-же/. Если на слоговой
+                границе стоят два согласных, то первый относится к предыдущему
+                слогу, второй - к последующему ән - дер - мен (песнями).
+              </p>
+              <p>
+                <b>Екпін - Ударение.</b> <br />
+                Ударение в казахском языке по сравнению с русским более
+                постоянное падающее на один определенный слог слова, обычно
+                последний. Если к словам прибавляются аффиксы, то и ударения в
+                них передвигаются на последние слоги аффиксов.
+              </p>
+            </div>
+            <div class="buttons-titles">
+              <button class="button" (click)="openQuizDialog()">take quiz</button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+          <mat-expansion-panel class="SozdikaMaterial" *ngIf="isSozdik">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <b>Ауа райы туралы сөздік / Словарь о погоде</b>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="learn-material">
+              <h2>Ауа райы туралы жалпы сөздер / Общие слова о погоде</h2>
+              <ul>
+                <li>Ауа райы - Погода</li>
+                <li>Температура - Температура</li>
+                <li>Ылғалдылық - Влажность</li>
+                <li>Қысым - Давление</li>
+                <li>Жел - Ветер</li>
+                <li>Бұлттылық - Облачность</li>
+                <li>Жауын-шашын - Осадки</li>
+                <li>Климат - Климат</li>
+              </ul>
+              <h2>Ауа райының түрлері / Типы погоды</h2>
+              <ul>
+                <li>Жылы - Тёплая</li>
+                <li>Суық - Холодная</li>
+                <li>Ыстық - Жаркая</li>
+                <li>Салқын - Прохладная</li>
+                <li>Құрғақ - Сухая</li>
+                <li>Ылғалды - Влажная</li>
+                <li>Қарлы - Снежная</li>
+                <li>Жаңбырлы - Дождевая</li>
+              </ul>
+              <h2>Ауа райы құбылыстары / Явления погоды</h2>
+              <ul>
+                <li>Қар - Снег</li>
+                <li>Жаңбыр - Дождь</li>
+                <li>Нөсер жаңбыр - Ливень</li>
+                <li>Бұршақ - Град</li>
+                <li>Тұман - Туман</li>
+                <li>Шаңды боран - Пыльная буря</li>
+                <li>Найзағай - Гроза</li>
+                <li>Күн күркіреу - Гром</li>
+              </ul>
+              <h2>Жел туралы / О ветре</h2>
+              <ul>
+                <li>Жел күші - Сила ветра</li>
+                <li>Желдің жылдамдығы - Скорость ветра</li>
+                <li>Солтүстік жел - Северный ветер</li>
+                <li>Оңтүстік жел - Южный ветер</li>
+                <li>Батыс жел - Западный ветер</li>
+                <li>Шығыс жел - Восточный ветер</li>
+                <li>Боран - Метель</li>
+                <li>Құйын - Вихрь</li>
+              </ul>
+              <h2>Аспан жағдайы / Состояние неба</h2>
+              <ul>
+                <li>Ашық - Ясно</li>
+                <li>Бұлтты - Облачно</li>
+                <li>Жартылай бұлтты - Переменная облачность</li>
+                <li>Күн ашық - Солнечно</li>
+                <li>Қара бұлтты - Пасмурно</li>
+                <li>Жұлдызды - Звёздное</li>
+              </ul>
+              <h2>Ауа райын болжау / Прогноз погоды</h2>
+              <ul>
+                <li>Ауа райын болжау - Прогноз погоды</li>
+                <li>Синоптикалық карта - Синоптическая карта</li>
+                <li>Ауа температурасы - Температура воздуха</li>
+                <li>Күннің ұзақтығы - Длительность дня</li>
+                <li>Ультракүлгін индексі - Ультрафиолетовый индекс</li>
+                <li>Жауын-шашын мөлшері - Количество осадков</li>
+              </ul>
+              <h2>Мезгілдер / Времена года</h2>
+              <ul>
+                <li>Көктем - Весна</li>
+                <li>Жаз - Лето</li>
+                <li>Күз - Осень</li>
+                <li>Қыс - Зима</li>
+              </ul>
+            </div>
+            <div class="buttons-titles">
+              <button class="button" (click)="openQuizDialog()">take quiz</button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+          <mat-expansion-panel class="PhrazaMaterial" *ngIf="isPhraza">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <b>Танысу фразалары / Фразы для знакомства</b>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="learn-material">
+              <h2>Қазақша / На казахском</h2>
+              <ul>
+                <li>Сәлем! / Привет!</li>
+                <li>Қалың қалай? / Как дела?</li>
+                <li>Менің атым ... / Меня зовут ...</li>
+                <li>Сіздің атыңыз кім? / Как Вас зовут?</li>
+                <li>Қайдан боласыз? / Откуда Вы?</li>
+                <li>Мен ... келдім. / Я из ...</li>
+                <li>Жасыңыз қаншада? / Сколько Вам лет?</li>
+                <li>Мен ... жастамын. / Мне ... лет.</li>
+                <li>Қайда тұрасыз? / Где Вы живёте?</li>
+                <li>Мен ... тұрамын. / Я живу в ...</li>
+                <li>Сіздің жұмыс істейсіз бе? / Вы работаете?</li>
+                <li>Иә, мен ... жұмыс істеймін. / Да, я работаю ...</li>
+                <li>Сіз қайда оқисыз? / Где Вы учитесь?</li>
+                <li>Мен ... оқимын. / Я учусь в ...</li>
+                <li>Қандай хоббиіңіз бар? / Какие у Вас хобби?</li>
+                <li>Менің хоббиім ... / Моё хобби ...</li>
+                <li>Сізге ұнайды ма? / Вам нравится?</li>
+                <li>Иә, маған ұнайды. / Да, мне нравится.</li>
+                <li>Жоқ, маған ұнамайды. / Нет, мне не нравится.</li>
+                <li>Келесіде кездесеміз бе? / Встретимся в следующий раз?</li>
+                <li>Иә, кездесеміз. / Да, встретимся.</li>
+              </ul>
+              <h2>Орысша / На русском</h2>
+              <ul>
+                <li>Привет! / Сәлем!</li>
+                <li>Как дела? / Қалың қалай?</li>
+                <li>Меня зовут ... / Менің атым ...</li>
+                <li>Как Вас зовут? / Сіздің атыңыз кім?</li>
+                <li>Откуда Вы? / Қайдан боласыз?</li>
+                <li>Я из ... / Мен ... келдім.</li>
+                <li>Сколько Вам лет? / Жасыңыз қаншада?</li>
+                <li>Мне ... лет. / Мен ... жастамын.</li>
+                <li>Где Вы живёте? / Қайда тұрасыз?</li>
+                <li>Я живу в ... / Мен ... тұрамын.</li>
+                <li>Вы работаете? / Сіздің жұмыс істейсіз бе?</li>
+                <li>Да, я работаю ... / Иә, мен ... жұмыс істеймін.</li>
+                <li>Где Вы учитесь? / Сіз қайда оқисыз?</li>
+                <li>Я учусь в ... / Мен ... оқимын.</li>
+                <li>Какие у Вас хобби? / Қандай хоббиіңіз бар?</li>
+                <li>Моё хобби ... / Менің хоббиім ...</li>
+                <li>Вам нравится? / Сізге ұнайды ма?</li>
+                <li>Да, мне нравится. / Иә, маған ұнайды.</li>
+                <li>Нет, мне не нравится. / Жоқ, маған ұнамайды.</li>
+                <li>Встретимся в следующий раз? / Келесіде кездесеміз бе?</li>
+                <li>Да, встретимся. / Иә, кездесеміз.</li>
+              </ul>
+            </div>
+            <div class="buttons-titles">
+              <button class="button" (click)="openQuizDialog()">take quiz</button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+
+  <div class="lowerPart">
+    <div class="firstQuote">
+      <div class="box">
+        <div class="box-inner">
+          <p>
+            Ғылыми, әдеби тілдік және тарихи тұрғыдан қарағанда қазақ тілі -
+            түркі тілдерінің ішіндегі өте әсем, өте бай тілдердің бірі.
+          </p>
+          <div class="author">
+            <img src="../../../../assets/images/Йоханнес_Бенцинг.jpg" />
+            <p>Йоханнес Бенцинг</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<app-home-page-footer></app-home-page-footer>

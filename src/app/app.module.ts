@@ -11,6 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpModalComponent } from './core/auth/sign-up-modal/sign-up-modal.component';
 import { HomePageModule } from './core/home/home-page/home-page.module'; // Import HomePageModule
+import { MatExpansionModule } from '@angular/material/expansion';
+import { QuizComponent } from './core/home/language/quiz/quiz/quiz.component';
+import { QuestionComponent } from './core/home/language/quiz/quiz/questions/question/question.component';
+import { ResultComponent } from './core/home/language/quiz/quiz/result/result/result.component';
+import { CommonModule } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -19,17 +24,22 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpModalComponent
+    SignUpModalComponent,
+    QuizComponent,
+    QuestionComponent,
+    ResultComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
+    MatExpansionModule,
     MatProgressSpinnerModule,
-    HomePageModule, // Import HomePageModule
+    // HomePageModule, // Import HomePageModule
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

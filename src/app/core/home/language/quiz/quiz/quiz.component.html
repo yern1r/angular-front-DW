@@ -1,0 +1,12 @@
+<div class="quiz-container" *ngIf="!showResult">
+    <h2 class="quiz-title">Quiz</h2>
+    <div class="question-container" *ngFor="let question of questions; let i = index">
+      <app-question [question]="question" (answerSelected)="onAnswerSelected($event, i)"></app-question>
+    </div>
+    <button class="submit-button" (click)="showResult = true">Submit</button>
+  </div>
+  
+  <div class="result-container" *ngIf="showResult">
+    <app-result [score]="score"></app-result>
+  </div>
+  

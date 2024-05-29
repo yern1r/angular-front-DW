@@ -9,14 +9,15 @@ import { QazaqTilPageComponent } from '../language/qazaq-til-page.component';
 import { HomePageFooterComponent } from './footer/home-page-footer/home-page-footer.component';
 import { HomePageHeaderComponent } from './header/home-page-header/home-page-header.component'; // Importing HomePageHeaderComponent
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   declarations: [
     QazaqTilPageComponent,
