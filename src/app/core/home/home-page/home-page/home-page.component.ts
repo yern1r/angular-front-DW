@@ -13,4 +13,8 @@ export class HomePageComponent implements OnInit {
   navigateTil() {
     this.router.navigate(['/qazaqTili']).then();
   }
+
+  navigateTarih(): void {
+    this.router.navigate(['/qazaqTarihMap']).then();
+  }
 }

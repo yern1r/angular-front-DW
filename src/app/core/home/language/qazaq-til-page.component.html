@@ -90,7 +90,7 @@
 
     <div class="right-material">
       <div class="content-material">
-        <div class="instructions" *ngIf="isNotClicked">
+        <div class="instructions" *ngIf="isOpened">
           <div class="header-info">
             <mat-icon> info </mat-icon>
             <h1 style="color: #dc1b23">Instructions</h1>
@@ -183,7 +183,9 @@
               </p>
             </div>
             <div class="buttons-titles">
-              <button class="button" (click)="openQuizDialog()">take quiz</button>
+              <button class="button" (click)="openQuizDialog()">
+                QUIZ TIME
+              </button>
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -267,7 +269,7 @@
               </ul>
             </div>
             <div class="buttons-titles">
-              <button class="button" (click)="openQuizDialog()">take quiz</button>
+              <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -330,7 +332,7 @@
               </ul>
             </div>
             <div class="buttons-titles">
-              <button class="button" (click)="openQuizDialog()">take quiz</button>
+              <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
             </div>
           </mat-expansion-panel>
         </mat-accordion>

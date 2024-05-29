@@ -10,12 +10,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpModalComponent } from './core/auth/sign-up-modal/sign-up-modal.component';
-import { HomePageModule } from './core/home/home-page/home-page.module'; // Import HomePageModule
 import { MatExpansionModule } from '@angular/material/expansion';
 import { QuizComponent } from './core/home/language/quiz/quiz/quiz.component';
 import { QuestionComponent } from './core/home/language/quiz/quiz/questions/question/question.component';
 import { ResultComponent } from './core/home/language/quiz/quiz/result/result/result.component';
 import { CommonModule } from '@angular/common';
+import { MapComponent } from './core/home/map/map-app/map-page.component';
+import { MapWithOthersComponent } from './core/home/map/map-with-others/map-with-others.component';
+import { HomePageFooterComponent } from './core/home/home-page/footer/home-page-footer/home-page-footer.component';
+import { HomePageHeaderComponent } from './core/home/home-page/header/home-page-header/home-page-header.component';
+import { HomePageComponent } from './core/home/home-page/home-page/home-page.component';
+import { QazaqTilPageComponent } from './core/home/language/qazaq-til-page.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -27,7 +32,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SignUpModalComponent,
     QuizComponent,
     QuestionComponent,
-    ResultComponent
+    ResultComponent,
+    MapWithOthersComponent,
+    QazaqTilPageComponent,
+    HomePageFooterComponent,
+    HomePageHeaderComponent, 
+    HomePageComponent,
+    MapComponent,
+    
   ],
   imports: [
     CommonModule,

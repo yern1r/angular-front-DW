@@ -19,7 +19,7 @@ export class QazaqTilPageComponent {
     isGrammatica = false;
     isSozdik = false;
     isPhraza = false;
-    isNotClicked = true;
+    isOpened = true;
 
     openQuizDialog() {
       const dialogRef = this.dialog.open(QuizComponent, {
@@ -46,7 +46,7 @@ export class QazaqTilPageComponent {
       this.resetAllMaterials();
     }
     this.isPhraza = !this.isPhraza;
-    this.isNotClicked = false;
+    this.isOpened = !this.isOpened;
   }
 
   showSozdikMaterial() {
@@ -54,7 +54,7 @@ export class QazaqTilPageComponent {
       this.resetAllMaterials();
     }
     this.isSozdik = !this.isSozdik;
-    this.isNotClicked = false;
+    this.isOpened = !this.isOpened;
   }
 
   showGrammaticaMaterial() {
@@ -62,7 +62,7 @@ export class QazaqTilPageComponent {
       this.resetAllMaterials();
     }
     this.isGrammatica = !this.isGrammatica;
-    this.isNotClicked = false;
+    this.isOpened = !this.isOpened;
   }
 }
 
