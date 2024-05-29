@@ -47,7 +47,7 @@ export class HomePageHeaderComponent implements OnInit {
   }
 
   navigateToTarihPage(): void {
-    this.router.navigate(['/']).then();
+    this.router.navigate(['/qazaqTarihMap']).then();
   }
 
   navigateToTilPage(): void {
