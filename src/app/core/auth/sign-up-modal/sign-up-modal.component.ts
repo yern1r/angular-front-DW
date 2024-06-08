@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-modal',
@@ -9,23 +11,29 @@ import { Component } from '@angular/core';
 export class SignUpModalComponent {
 
   isSignUp = true;
-  addSlideUpClass= false;
+  addSlideUpClass = false;
 
-  constructor(){
+  constructor(private authService: AuthService, private router : Router) {
 
   }
 
- toggleSlideUpClass() {
+  toggleSlideUpClass() {
     this.addSlideUpClass = !this.addSlideUpClass;
   }
 
-  logIn(){
-   
-  }
+  logIn(email: string, password: string) {
+    this.authService.login(email, password)
+      .subscribe(data => {
+        console.log("Is Login Success: " + data);
+        if (data) this.router.navigate(['/']).then();
+      })
+    }
 
-  signUp(){
-    
+  signUp(name: string, email: string, password: string) {
+    this.authService.register(email, name, password)
+      .subscribe(data => {
+        console.log("Is Signup Success: " + data);
+        if (data) this.router.navigate(['/']).then();
+      })
   }
-
-  
 }
