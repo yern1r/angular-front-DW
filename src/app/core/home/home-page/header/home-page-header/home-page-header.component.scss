@@ -584,7 +584,7 @@ button{
 }
 
 button:after {
-  content: url(../../../../../../assets/images/login.svg);
+  content: url('../../../../../../assets/images/login.svg');
   position: absolute;
   opacity: 0;  
   top: 14px;

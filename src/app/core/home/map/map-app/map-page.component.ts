@@ -58,11 +58,11 @@ export class MapComponent implements AfterViewInit {
       },
       onEachFeature: function (feature, layer) {
         layer.bindPopup(
-          '<div style="max-width: 200px;">' +
-            '<strong>Location: ' + feature.properties.shapeName + '</strong><br>' +
-            '<img src="' + feature.properties.image + '" alt="' + feature.properties.personName + '" style="width: 90px; height: 90px; margin: 10px 0;"/><br>' +
-            '<strong>Person: ' + feature.properties.personName + '</strong><br>' +
-            '<br><strong>Information about person:</strong> ' + '<p>' + feature.properties.textInfo + '</p>'+
+          '<div>' +
+            '<strong>Location: ' + feature.properties.shapeName + '</strong>' +
+            '<img src="' + feature.properties.image + '" alt="' + feature.properties.personName + '" style="width: 90px; height: 90px; margin: 10px 0;"/>' +
+            '<strong>Person: ' + feature.properties.personName + '</strong>' +
+            '<strong>Information about person:</strong> ' + '<p>' + feature.properties.textInfo + '</p>'+
           '</div>'
         );
         

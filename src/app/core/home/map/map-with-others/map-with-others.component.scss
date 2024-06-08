@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0;
+}
+
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .mapPhoto{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    img{
+        height: 300px;
+        border-radius: 50px;
+    }
+    h1{
+        padding-top: 25px;
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-style: normal;
+        position: absolute;
+        font-size: 60px;
+    }
+  }
+
+  .alashOrda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    img{
+        height: 500px;
+    border-radius: 20px;
+    width: 800px;
+    }
+    a{
+        text-decoration: none;
+        color: blue;
+        cursor: pointer;
+    }
+    p{
+        width: 800px;
+        padding: 10px;
+        font-family: auto;
+    }
+  }

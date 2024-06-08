@@ -43,7 +43,7 @@ export class HomePageHeaderComponent implements OnInit {
   }
 
   navigateToDasturPage(): void {
-    this.router.navigate(['/']).then();
+    this.router.navigate(['/qazaqDastur']).then();
   }
 
   navigateToTarihPage(): void {

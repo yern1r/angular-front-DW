@@ -21,6 +21,7 @@ import { HomePageFooterComponent } from './core/home/home-page/footer/home-page-
 import { HomePageHeaderComponent } from './core/home/home-page/header/home-page-header/home-page-header.component';
 import { HomePageComponent } from './core/home/home-page/home-page/home-page.component';
 import { QazaqTilPageComponent } from './core/home/language/qazaq-til-page.component';
+import { CulturePageComponent } from './core/home/culture/culture-page/culture-page.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HomePageHeaderComponent, 
     HomePageComponent,
     MapComponent,
+    CulturePageComponent,
     
   ],
   imports: [
