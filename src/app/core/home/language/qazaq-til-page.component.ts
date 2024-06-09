@@ -20,6 +20,7 @@ export class QazaqTilPageComponent {
     isSozdik = false;
     isPhraza = false;
     isOpened = true;
+    isHarmonyLaw = false;
 
     openQuizDialog() {
       const dialogRef = this.dialog.open(QuizComponent, {
@@ -46,7 +47,7 @@ export class QazaqTilPageComponent {
       this.resetAllMaterials();
     }
     this.isPhraza = !this.isPhraza;
-    this.isOpened = !this.isOpened;
+    // this.isOpened = !this.isOpened;
   }
 
   showSozdikMaterial() {
@@ -54,7 +55,7 @@ export class QazaqTilPageComponent {
       this.resetAllMaterials();
     }
     this.isSozdik = !this.isSozdik;
-    this.isOpened = !this.isOpened;
+    // this.isOpened = !this.isOpened;
   }
 
   showGrammaticaMaterial() {
@@ -62,7 +63,8 @@ export class QazaqTilPageComponent {
       this.resetAllMaterials();
     }
     this.isGrammatica = !this.isGrammatica;
-    this.isOpened = !this.isOpened;
+    this.isHarmonyLaw = !this.isHarmonyLaw;
+    // this.isOpened = !this.isOpened;
   }
 }
 

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpModalComponent } from './core/auth/sign-up-modal/sign-up-modal.component';
@@ -22,6 +22,10 @@ import { HomePageHeaderComponent } from './core/home/home-page/header/home-page-
 import { HomePageComponent } from './core/home/home-page/home-page/home-page.component';
 import { QazaqTilPageComponent } from './core/home/language/qazaq-til-page.component';
 import { CulturePageComponent } from './core/home/culture/culture-page/culture-page.component';
+import { DialogModule } from '@angular/cdk/dialog';
+import { OpenDialogComponent } from './core/home/culture/open-dialog/open-dialog.component';
+import { OpenDialogSandyqComponent } from './core/home/culture/open-dialog-sandyq/open-dialog-sandyq.component';
+import { OpenDialogBesikComponent } from './core/home/culture/open-dialog-besik/open-dialog-besik.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -41,6 +45,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HomePageComponent,
     MapComponent,
     CulturePageComponent,
+    OpenDialogComponent,
+    OpenDialogSandyqComponent,
+    OpenDialogBesikComponent,
     
   ],
   imports: [
@@ -53,6 +60,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatIconModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
     // HomePageModule, // Import HomePageModule
     TranslateModule.forRoot({
       loader: {
