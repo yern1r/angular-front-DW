@@ -42,6 +42,7 @@ export class QazaqTilPageComponent {
     this.isGrammatica = false;
     this.isSozdik = false;
     this.isPhraza = false;
+    this.isHarmonyLaw = false;
   }
 
   showPhrazakMaterial() {
