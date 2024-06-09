@@ -1,0 +1,16 @@
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    img{
+        width: 350px;
+        padding-top: 10px;
+    }
+    p{
+        margin: 25px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,15 @@
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    img{
+        width: 350px;
+    }
+    p{
+        margin: 30px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+    }
+}
