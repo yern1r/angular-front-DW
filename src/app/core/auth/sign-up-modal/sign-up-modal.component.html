@@ -1,21 +1,26 @@
 <div class="form-structor">
-	<div class="signup" >
-		<h2 class="form-title" id="signup" style="font-family: 'Open Sans', sans-serif; background-color: white; border-radius: 50px;">Sign up</h2>
+	<div class="signup">
+	  <h2 class="form-title" id="signup">Sign up</h2>
+	  <div class="form-holder">
+		<input type="text" class="input" placeholder="Name" #nameInputSignup />
+		<input type="email" class="input" placeholder="Email" #emailInputSignup />
+		<input type="password" class="input" placeholder="Password" #passwordInputSignup />
+	  </div>
+	  <button class="submit-btn" (click)="signUp(nameInputSignup.value, emailInputSignup.value, passwordInputSignup.value)">
+		Sign up
+	  </button>
+	</div>
+	<div class="login" [ngClass]="{'slide-up': addSlideUpClass}">
+	  <div class="center">
+		<h2 class="form-title" id="login" (click)="toggleSlideUpClass()">Log in</h2>
 		<div class="form-holder">
-			<input type="text" class="input" placeholder="Name" #nameInputSignup/>
-			<input type="email" class="input" placeholder="Email" #emailInputSignup/>
-			<input type="password" class="input" placeholder="Password" #passwordInputSignup/>
+		  <input type="email" class="input" placeholder="Email" #emailInputLogin />
+		  <input type="password" class="input" placeholder="Password" #passwordInputLogin />
 		</div>
-		<button class="submit-btn" (click)="signUp(nameInputSignup.value, emailInputSignup.value, passwordInputSignup.value)" >Sign up</button>
+		<button class="submit-btn" (click)="logIn(emailInputLogin.value, passwordInputLogin.value)">
+		  Log in
+		</button>
+	  </div>
 	</div>
-	<div class="login"  [ngClass]="{'slide-up': !addSlideUpClass}" >
-		<div class="center">
-			<h2 class="form-title" id="login" (click)="toggleSlideUpClass()" style="font-family: 'Open Sans', sans-serif;">Log in</h2>
-			<div class="form-holder">
-				<input type="email" class="input" placeholder="Email" #emailInputLogin/>
-				<input type="password" class="input" placeholder="Password" #passwordInputLogin/>
-			</div>
-			<button class="submit-btn" (click)="logIn(emailInputLogin.value, passwordInputLogin.value)">Log in</button>
-		</div>
-	</div>
-</div>
+  </div>
+  

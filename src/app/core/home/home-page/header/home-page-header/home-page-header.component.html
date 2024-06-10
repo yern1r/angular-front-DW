@@ -27,9 +27,11 @@
     </div>
     <div class="container2">
       <div class="header-right">
-        <div class="login-block">
-          <button *ngIf="isSignUp" (click)="logIn()"><span>Log In</span></button>
+        <div class="login-block" *ngIf="isSignUp">
           <button (click)="signUp()"><span>Sign Up</span></button>
+        </div>
+        <div class="login-block" *ngIf="isLoggedIn">
+          You are logged in
         </div>
       </div>
     </div>
