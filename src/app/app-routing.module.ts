@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'qazaqTili', component: QazaqTilPageComponent},
   {path: 'qazaqTarihMap', component: MapWithOthersComponent},
   {path: 'qazaqDastur', component: CulturePageComponent},
-  { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomePageComponent },
   { path: 'signup', component: SignUpModalComponent },
 ];
 
