@@ -27,7 +27,9 @@ export class HomePageHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageIsMain = this.router.url === '/';
+    this.checkLoginStatus();
   }
+
 
   // logIn(): void {
   //   // Open the login dialog
@@ -36,42 +38,62 @@ export class HomePageHeaderComponent implements OnInit {
   //   });
   // }
 
-  signUp(): void {
-    this.dialog.open(SignUpModalComponent, {
-      data: {}
-    });
-  }
-
-  // attemptLogin() {
-  //   this.authService.login2().subscribe(
-  //     response => {
-  //       if(response.message === 'success'){
-  //         this.isLoggedIn = true;
-  //         this.isSignUp = false;
-  //       }
-  //       console.log('Login successful:', response);
-  //       // Handle successful login response here
-  //     },
-  //     error => {
-  //       console.error('Login failed:', error);
-  //       // Handle error response here
-  //     }
-  //   );
+  // signUp(): void {
+  //   this.dialog.open(SignUpModalComponent, {
+  //     data: {}
+  //   });
   // }
+
 
   navigateToMainPage(): void {
     this.router.navigate(['/']).then();
   }
 
-  navigateToDasturPage(): void {
-    this.router.navigate(['/qazaqDastur']).then();
+  navigateToTilPage(): void {
+    this.handleNavigation('/qazaqTili');
   }
 
   navigateToTarihPage(): void {
-    this.router.navigate(['/qazaqTarihMap']).then();
+    this.handleNavigation('/qazaqTarihMap');
   }
 
-  navigateToTilPage(): void {
-    this.router.navigate(['/qazaqTili']).then();
+  navigateToDasturPage(): void {
+    this.handleNavigation('/qazaqDastur');
+  }
+
+  handleNavigation(route: string): void {
+    if (this.isLoggedIn) {
+      this.router.navigate([route]).then();
+    } else {
+      this.openSignUpModal();
+    }
+  }
+
+  checkLoginStatus(): void {
+    this.authService.attemptLogin().subscribe(
+      response => {
+        this.isLoggedIn = response.message === 'success';
+      },
+      error => {
+        console.error('Login status check failed:', error);
+        this.isLoggedIn = false;
+      }
+    );
+  }
+
+  openSignUpModal(): void {
+    const dialogRef = this.dialog.open(SignUpModalComponent, {
+      width: '350px', // Adjust the width as needed
+    });
+
+    dialogRef.componentInstance.loginSuccess.subscribe(() => {
+      this.isLoggedIn = true;  // Update the logged-in state
+    });
+  }
+
+  logout(): void {
+    this.authService.logout(); // Call the logout method in the AuthService
+    this.isLoggedIn = false; // Update the logged-in state
+    this.router.navigate(['/']).then(); // Redirect to home or login page after logout
   }
 }
