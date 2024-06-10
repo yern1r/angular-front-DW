@@ -30,13 +30,14 @@
         <div class="login-block" *ngIf="isSignUp && !isLoggedIn">
           <button (click)="openSignUpModal()"><span>Sign Up</span></button>
         </div>
+
         <div class="login-block" *ngIf="isLoggedIn" style="    display: flex;
         align-items: center;">
           <button (click)="logout()"><span>Logout</span></button>
           <div>
             <p>You are logged in</p>
           </div>
-          
+
         </div>
       </div>
     </div>

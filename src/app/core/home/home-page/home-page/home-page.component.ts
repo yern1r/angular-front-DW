@@ -10,6 +10,8 @@ import { AuthService } from '../../../auth/sign-up-modal/services/auth.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
+
+
   isLoggedIn = false;
 
   constructor(private router: Router, private dialog: MatDialog, private authService: AuthService) {}
@@ -18,6 +20,7 @@ export class HomePageComponent implements OnInit {
     this.authService.loggedIn$.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });
+
   }
 
   navigateTil(): void {
@@ -40,6 +43,8 @@ export class HomePageComponent implements OnInit {
     }
   }
 
+
+
   openSignUpModal(): void {
     const dialogRef = this.dialog.open(SignUpModalComponent, {
       width: '350px',
@@ -47,10 +52,12 @@ export class HomePageComponent implements OnInit {
 
     dialogRef.componentInstance.loginSuccess.subscribe(() => {
       this.isLoggedIn = true;
+
     });
   }
 
   logout(): void {
     this.authService.logout();
+
   }
 }

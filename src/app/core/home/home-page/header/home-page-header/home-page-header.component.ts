@@ -15,13 +15,16 @@ export class HomePageHeaderComponent implements OnInit {
   headerShow = true;
   currentUser = null;
   isSignUp = true;
+
   isLoggedIn = false;
+
 
   constructor(
     private router: Router,
     private translate: TranslateService,
     private dialog: MatDialog,
     private authService: AuthService
+
   ) {}
 
   ngOnInit(): void {
@@ -39,9 +42,11 @@ export class HomePageHeaderComponent implements OnInit {
     this.handleNavigation('/qazaqTili');
   }
 
+
   navigateToTarihPage(): void {
     this.handleNavigation('/qazaqTarihMap');
   }
+
 
   navigateToDasturPage(): void {
     this.handleNavigation('/qazaqDastur');
@@ -62,11 +67,14 @@ export class HomePageHeaderComponent implements OnInit {
 
     dialogRef.componentInstance.loginSuccess.subscribe(() => {
       this.isLoggedIn = true;
+
     });
   }
 
   logout(): void {
+
     this.authService.logout();
     this.navigateToMainPage();
+
   }
 }

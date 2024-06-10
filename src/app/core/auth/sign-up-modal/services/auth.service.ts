@@ -1,6 +1,8 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+
 import { tap } from 'rxjs/operators';
 
 interface AuthResponse {
@@ -14,8 +16,10 @@ interface AuthResponse {
 })
 export class AuthService {
   private baseUrl = 'http://localhost:8080/api/v1/user';
+
   private loggedInSubject = new BehaviorSubject<boolean>(this.isUserAuthorized());
   loggedIn$ = this.loggedInSubject.asObservable();
+
 
   constructor(private http: HttpClient) {}
 
@@ -29,7 +33,9 @@ export class AuthService {
       tap(response => {
         if (response.message === 'success') {
           localStorage.setItem('authToken', response.data);
+
           this.loggedInSubject.next(true);
+
         }
       })
     );
@@ -45,7 +51,9 @@ export class AuthService {
       tap(response => {
         if (response.message === 'success') {
           localStorage.setItem('authToken', response.data);
+
           this.loggedInSubject.next(true);
+
         }
       })
     );
@@ -62,13 +70,17 @@ export class AuthService {
       { headers }
     ).pipe(
       tap(response => {
+
         this.loggedInSubject.next(response.message === 'success');
+
       })
     );
   }
 
   logout(): void {
+
     localStorage.removeItem('authToken');
     this.loggedInSubject.next(false);
+
   }
 }
