@@ -9,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./sign-up-modal.component.scss']
 })
 export class SignUpModalComponent {
+  @Output() loginSuccess = new EventEmitter<void>();
 
   @Output() loginSuccess = new EventEmitter<void>();  // Event emitter for successful login
 
@@ -30,7 +31,8 @@ export class SignUpModalComponent {
       data => {
         console.log("Is Login Success: ", data);
         if (data.message === 'success') {
-          this.loginSuccess.emit();  // Emit event on successful login
+
+          this.loginSuccess.emit();
           this.closeModal();
         }
       },
@@ -45,7 +47,9 @@ export class SignUpModalComponent {
       data => {
         console.log("Is Signup Success: ", data);
         if (data.message === 'success') {
-          this.loginSuccess.emit();  // Emit event on successful signup
+
+          this.loginSuccess.emit();
+
           this.closeModal();
         }
       },
@@ -56,6 +60,7 @@ export class SignUpModalComponent {
   }
 
   closeModal() {
-    this.dialogRef.close();  // Close the modal
+    this.dialogRef.close();
+
   }
 }

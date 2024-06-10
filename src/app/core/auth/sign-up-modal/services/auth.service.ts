@@ -1,6 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+
 import { tap } from 'rxjs/operators';
 
 interface AuthResponse {
@@ -14,7 +16,10 @@ interface AuthResponse {
 })
 export class AuthService {
   private baseUrl = 'http://localhost:8080/api/v1/user';
-  isUserLoggedIn: boolean = false;
+
+  private loggedInSubject = new BehaviorSubject<boolean>(this.isUserAuthorized());
+  loggedIn$ = this.loggedInSubject.asObservable();
+
 
   constructor(private http: HttpClient) {}
 
@@ -28,8 +33,9 @@ export class AuthService {
       tap(response => {
         if (response.message === 'success') {
           localStorage.setItem('authToken', response.data);
-          this.isUserLoggedIn = true;
-          localStorage.setItem('isUserLoggedIn', 'true');
+
+          this.loggedInSubject.next(true);
+
         }
       })
     );
@@ -45,8 +51,9 @@ export class AuthService {
       tap(response => {
         if (response.message === 'success') {
           localStorage.setItem('authToken', response.data);
-          this.isUserLoggedIn = true;
-          localStorage.setItem('isUserLoggedIn', 'true');
+
+          this.loggedInSubject.next(true);
+
         }
       })
     );
@@ -63,18 +70,17 @@ export class AuthService {
       { headers }
     ).pipe(
       tap(response => {
-        if (response.message === 'success') {
-          this.isUserLoggedIn = true;
-        } else {
-          this.isUserLoggedIn = false;
-        }
+
+        this.loggedInSubject.next(response.message === 'success');
+
       })
     );
   }
 
   logout(): void {
-    this.isUserLoggedIn = false;
-    localStorage.removeItem('isUserLoggedIn');
+
     localStorage.removeItem('authToken');
+    this.loggedInSubject.next(false);
+
   }
 }
