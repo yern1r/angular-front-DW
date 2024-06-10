@@ -11,39 +11,25 @@ import { AuthService } from '../../../../auth/sign-up-modal/services/auth.servic
   styleUrls: ['./home-page-header.component.scss']
 })
 export class HomePageHeaderComponent implements OnInit {
-
   pageIsMain = true;
   headerShow = true;
   currentUser = null;
   isSignUp = true;
-  isLoggedIn = false; // Add this flag
+  isLoggedIn = false;
 
   constructor(
     private router: Router,
     private translate: TranslateService,
     private dialog: MatDialog,
     private authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.pageIsMain = this.router.url === '/';
-    this.checkLoginStatus();
+    this.authService.loggedIn$.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    });
   }
-
-
-  // logIn(): void {
-  //   // Open the login dialog
-  //   this.dialog.open(SignUpModalComponent, {
-  //     data: {}
-  //   });
-  // }
-
-  // signUp(): void {
-  //   this.dialog.open(SignUpModalComponent, {
-  //     data: {}
-  //   });
-  // }
-
 
   navigateToMainPage(): void {
     this.router.navigate(['/']).then();
@@ -69,31 +55,18 @@ export class HomePageHeaderComponent implements OnInit {
     }
   }
 
-  checkLoginStatus(): void {
-    this.authService.attemptLogin().subscribe(
-      response => {
-        this.isLoggedIn = response.message === 'success';
-      },
-      error => {
-        console.error('Login status check failed:', error);
-        this.isLoggedIn = false;
-      }
-    );
-  }
-
   openSignUpModal(): void {
     const dialogRef = this.dialog.open(SignUpModalComponent, {
-      width: '350px', // Adjust the width as needed
+      width: '350px',
     });
 
     dialogRef.componentInstance.loginSuccess.subscribe(() => {
-      this.isLoggedIn = true;  // Update the logged-in state
+      this.isLoggedIn = true;
     });
   }
 
   logout(): void {
-    this.authService.logout(); // Call the logout method in the AuthService
-    this.isLoggedIn = false; // Update the logged-in state
-    this.router.navigate(['/']).then(); // Redirect to home or login page after logout
+    this.authService.logout();
+    this.navigateToMainPage();
   }
 }
