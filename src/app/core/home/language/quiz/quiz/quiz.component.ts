@@ -12,7 +12,7 @@ export class QuizComponent {
   questions: Question[] = [];
   score: number = 0;
   showResult: boolean = false;
-
+  
   constructor(
     private quizService: QuizService,
     public dialogRef: MatDialogRef<QuizComponent>

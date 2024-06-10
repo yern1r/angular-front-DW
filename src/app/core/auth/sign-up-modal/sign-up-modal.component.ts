@@ -13,7 +13,7 @@ export class SignUpModalComponent {
   isSignUp = true;
   addSlideUpClass = false;
 
-  constructor(private authService: AuthService, private router : Router) {
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
@@ -27,7 +27,7 @@ export class SignUpModalComponent {
         console.log("Is Login Success: " + data);
         if (data) this.router.navigate(['/']).then();
       })
-    }
+  }
 
   signUp(name: string, email: string, password: string) {
     this.authService.register(email, name, password)

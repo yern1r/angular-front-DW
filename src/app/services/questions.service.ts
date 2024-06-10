@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import { grammaticaQuestions, sozdikaQuestions, phrazaQuestions } from '../../app/shared/questions.model';
 import { Question } from '../shared/questions.model';
 
@@ -8,17 +8,44 @@ import { Question } from '../shared/questions.model';
 })
 export class QuizService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  questions: Question[] = [];
 
   getGrammaticaQuestions(): Question[] {
-    return grammaticaQuestions;
+
+    this.http.post(
+      'http://localhost:8081/api/v1/quiz/all',
+      {
+        Type: 'grammar',
+      }
+    ).subscribe((response: any) => {
+      this.questions = response
+    });
+    return this.questions
   }
 
   getSozdikaQuestions(): Question[] {
-    return sozdikaQuestions;
+    this.http.post(
+      'http://localhost:8081/api/v1/quiz/all',
+      {
+        Type: 'sozdik',
+      }
+    ).subscribe((response: any) => {
+      this.questions = response
+    });
+    return this.questions
   }
 
   getPhrazaQuestions(): Question[] {
-    return phrazaQuestions;
+    this.http.post(
+      'http://localhost:8081/api/v1/quiz/all',
+      {
+        Type: 'phraza',
+      }
+    ).subscribe((response: any) => {
+      this.questions = response
+    });
+    return this.questions
   }
 }

@@ -16,7 +16,8 @@
         <div class="box">
           <div class="box-inner">
             <p>
-              Mysterious language, beautiful language, bright language - thank you, Kazakh brothers, for preserving the Kazakh language for centuries!
+              Mysterious language, beautiful language, bright language - thank you, Kazakh brothers, for preserving the
+              Kazakh language for centuries!
             </p>
             <div class="author">
               <img src="../../../../assets/images/Tufan.jpg" />
@@ -43,43 +44,22 @@
     <div class="left-panel">
       <div class="buttons-titles">
         <div class="section">
-          <img
-            src="../../../../assets/images/023ae96a-c781-4865-9e7b-6de2842a56d2.jpg"
-            alt=""
-          />
-          <button
-            class="button"
-            (click)="showGrammaticaMaterial()"
-            [class.active]="isGrammatica"
-          >
+          <img src="../../../../assets/images/023ae96a-c781-4865-9e7b-6de2842a56d2.jpg" alt="" />
+          <button class="button" (click)="showGrammaticaMaterial()" [class.active]="isGrammatica">
             Grammatica
           </button>
         </div>
 
         <div class="section">
-          <img
-            src="../../../../assets/images/36fa8155-3eb5-49ca-b2e2-654629927e26.jpg"
-            alt=""
-          />
-          <button
-            class="button"
-            (click)="showSozdikMaterial()"
-            [class.active]="isSozdik"
-          >
+          <img src="../../../../assets/images/36fa8155-3eb5-49ca-b2e2-654629927e26.jpg" alt="" />
+          <button class="button" (click)="showSozdikMaterial()" [class.active]="isSozdik">
             Sozdik
           </button>
         </div>
 
         <div class="section">
-          <img
-            src="../../../../assets/images/511e83e4-5b57-4fca-9766-9cb8a5dc03a1.jpg"
-            alt=""
-          />
-          <button
-            class="button"
-            (click)="showPhrazakMaterial()"
-            [class.active]="isPhraza"
-          >
+          <img src="../../../../assets/images/511e83e4-5b57-4fca-9766-9cb8a5dc03a1.jpg" alt="" />
+          <button class="button" (click)="showPhrazakMaterial()" [class.active]="isPhraza">
             Phraza
           </button>
         </div>
@@ -115,13 +95,21 @@
         </div>
 
         <mat-accordion>
-  <mat-expansion-panel class="GrammaticaMaterial" *ngIf="isGrammatica">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>Дыбыстардың бөлінуі - Classification of Sounds.</b>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="learn-material">
+          <div *ngFor="let item of languageData">
+            <mat-expansion-panel class="GrammaticaMaterial" *ngIf="isGrammatica&&(item.type=='grammar')">
+              
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <b>{{item.title}}</b>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div [innerHTML]="item.content"></div>
+     
+
+
+
+              <!-- <div class="learn-material">
       <table style="border-collapse: collapse; width: 100%">
         <tbody>
           <tr>
@@ -163,201 +151,217 @@
         <b>Екпін - Stress.</b> <br />
         Stress in the Kazakh language, compared to Russian, is more consistent, falling on one specific syllable of the word, usually the last. If affixes are added to words, the stress shifts to the last syllables of the affixes.
       </p>
-    </div>
-    <div class="buttons-titles">
-      <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
-    </div>
-  </mat-expansion-panel>
-  <mat-expansion-panel class="HarmonyLawMaterial" *ngIf="isHarmonyLaw">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>Буын үндестігі - Unified Law of Harmony</b>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="learn-material">
-      <p><b>In Kazakh language, two types of harmony are distinguished:</b></p>
-      <p>
-        a) harmony of vowel sounds; <br />
-        b) harmony of consonant sounds.
-      </p>
-      
-      <h3>Vowel Harmony</h3>
-      <p>
-        The essence of the law of harmony is as follows: depending on the root vowel, the word can only take either hard or soft affixes, such as -ler, -lık, -shy-lar-gha.
-      </p>
-      <p>
-        If the last syllable of the word is hard, then a hard affix is ​​attached to it. If the last syllable of the word is soft, then a soft affix is attached to it.
-      </p>
+    </div> -->
+              <div class="buttons-titles">
+                <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
+              </div>
+            </mat-expansion-panel>
+          </div>
+          <!-- <mat-expansion-panel class="HarmonyLawMaterial">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <b>Буын үндестігі - Unified Law of Harmony</b>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="learn-material">
+              <p><b>In Kazakh language, two types of harmony are distinguished:</b></p>
+              <p>
+                a) harmony of vowel sounds; <br />
+                b) harmony of consonant sounds.
+              </p>
 
-      <h3>Consonant Harmony</h3>
-      <p><b>Progressive and regressive assimilation</b></p>
-      <p>
-        Consonant harmony comes in two forms: progressive and regressive assimilation. According to progressive assimilation: the last sound of the base influences the first sound of the ending. If the last sound is voiceless or voiced b, v, g, d, then the initial sound of the affix is voiceless.
-      </p>
-      <p>For example: kitap tar, Ivanov tar.</p>
-      <p>
-        If the last sound of the base is voiced, sonorant, or vowel, then the initial consonant sound of the affix is voiced or sonorant.
-      </p>
-      <p>For example: aqyn dar, uy-diń, qyz-gha.</p>
+              <h3>Vowel Harmony</h3>
+              <p>
+                The essence of the law of harmony is as follows: depending on the root vowel, the word can only take
+                either hard or soft affixes, such as -ler, -lık, -shy-lar-gha.
+              </p>
+              <p>
+                If the last syllable of the word is hard, then a hard affix is ​​attached to it. If the last syllable of
+                the word is soft, then a soft affix is attached to it.
+              </p>
 
-      <h3>Subsequent Implementation</h3>
-      <p><b>Regressive assimilation</b></p>
-      <p>
-        If endings with initial voiceless consonants q, k, p are added to roots or bases with final voiceless consonants q, k, p and initial vowels ы or і, then the final voiceless consonants q, k, p become voiced sounds ǵ, g, b.
-      </p>
-      <p>For example: qasyq+ı = qasyǵı, dop+ım = dobım.</p>
-      <p>
-        Formation of the possessive form from nouns tap (class), ayaq (leg), júrek (heart) is as follows: jumısşı tabı (working class), stoldyń ayağı (table leg), jumystyń ayağı (end of work), adamnyń júregi (person's heart), etc.
-      </p>
-    </div>
-    <div class="buttons-titles">
-      <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+              <h3>Consonant Harmony</h3>
+              <p><b>Progressive and regressive assimilation</b></p>
+              <p>
+                Consonant harmony comes in two forms: progressive and regressive assimilation. According to progressive
+                assimilation: the last sound of the base influences the first sound of the ending. If the last sound is
+                voiceless or voiced b, v, g, d, then the initial sound of the affix is voiceless.
+              </p>
+              <p>For example: kitap tar, Ivanov tar.</p>
+              <p>
+                If the last sound of the base is voiced, sonorant, or vowel, then the initial consonant sound of the
+                affix is voiced or sonorant.
+              </p>
+              <p>For example: aqyn dar, uy-diń, qyz-gha.</p>
 
-<mat-accordion>
-  <mat-expansion-panel class="SozdikaMaterial" *ngIf="isSozdik">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>Ауа райы туралы сөздік - Weather Vocabulary</b>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="learn-material">
-      <h2>Ауа райы туралы жалпы сөздер - General Weather Words</h2>
-      <ul>
-        <li>Ауа райы - Weather</li>
-        <li>Температура - Temperature</li>
-        <li>Ылғалдылық - Humidity</li>
-        <li>Қысым - Pressure</li>
-        <li>Жел - Wind</li>
-        <li>Бұлттылық - Cloudiness</li>
-        <li>Жауын-шашын - Precipitation</li>
-        <li>Климат - Climate</li>
-      </ul>
-      <h2>Ауа райының түрлері - Types of Weather</h2>
-      <ul>
-        <li>Жылы - Warm</li>
-        <li>Суық - Cold</li>
-        <li>Ыстық - Hot</li>
-        <li>Салқын - Cool</li>
-        <li>Құрғақ - Dry</li>
-        <li>Ылғалды - Humid</li>
-        <li>Қарлы - Snowy</li>
-        <li>Жаңбырлы - Rainy</li>
-      </ul>
-      <h2>Ауа райы құбылыстары - Weather Phenomena</h2>
-      <ul>
-        <li>Қар - Snow</li>
-        <li>Жаңбыр - Rain</li>
-        <li>Нөсер жаңбыр - Heavy Rain</li>
-        <li>Бұршақ - Hail</li>
-        <li>Тұман - Fog</li>
-        <li>Шаңды боран - Dust Storm</li>
-        <li>Найзағай - Thunderstorm</li>
-        <li>Күн күркіреу - Thunder</li>
-      </ul>
-      <h2>Жел туралы - About Wind</h2>
-      <ul>
-        <li>Жел күші - Wind Force</li>
-        <li>Желдің жылдамдығы - Wind Speed</li>
-        <li>Солтүстік жел - North Wind</li>
-        <li>Оңтүстік жел - South Wind</li>
-        <li>Батыс жел - West Wind</li>
-        <li>Шығыс жел - East Wind</li>
-        <li>Боран - Blizzard</li>
-        <li>Құйын - Whirlwind</li>
-      </ul>
-      <h2>Аспан жағдайы - Sky Conditions</h2>
-      <ul>
-        <li>Ашық - Clear</li>
-        <li>Бұлтты - Cloudy</li>
-        <li>Жартылай бұлтты - Partly Cloudy</li>
-        <li>Күн ашық - Sunny</li>
-        <li>Қара бұлтты - Overcast</li>
-        <li>Жұлдызды - Starry</li>
-      </ul>
-      <h2>Ауа райын болжау - Weather Forecast</h2>
-      <ul>
-        <li>Ауа райын болжау - Weather Forecast</li>
-        <li>Синоптикалық карта - Synoptic Map</li>
-        <li>Ауа температурасы - Air Temperature</li>
-        <li>Күннің ұзақтығы - Day Length</li>
-        <li>Ультракүлгін индексі - UV Index</li>
-        <li>Жауын-шашын мөлшері - Precipitation Amount</li>
-      </ul>
-      <h2>Мезгілдер - Seasons</h2>
-      <ul>
-        <li>Көктем - Spring</li>
-        <li>Жаз - Summer</li>
-        <li>Күз - Autumn</li>
-        <li>Қыс - Winter</li>
-      </ul>
-    </div>
-    <div class="buttons-titles">
-      <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+              <h3>Subsequent Implementation</h3>
+              <p><b>Regressive assimilation</b></p>
+              <p>
+                If endings with initial voiceless consonants q, k, p are added to roots or bases with final voiceless
+                consonants q, k, p and initial vowels ы or і, then the final voiceless consonants q, k, p become voiced
+                sounds ǵ, g, b.
+              </p>
+              <p>For example: qasyq+ı = qasyǵı, dop+ım = dobım.</p>
+              <p>
+                Formation of the possessive form from nouns tap (class), ayaq (leg), júrek (heart) is as follows:
+                jumısşı tabı (working class), stoldyń ayağı (table leg), jumystyń ayağı (end of work), adamnyń júregi
+                (person's heart), etc.
+              </p>
+            </div>
+            <div class="buttons-titles">
+              <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
+            </div>
+          </mat-expansion-panel> -->
+        </mat-accordion>
 
-<mat-accordion>
-  <mat-expansion-panel class="PhrazaMaterial" *ngIf="isPhraza">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>Танысу фразалары - Introduction Phrases</b>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="learn-material">
-      <h2>Қазақша - In Kazakh</h2>
-      <ul>
-        <li>Сәлем! - Hello!</li>
-        <li>Қалың қалай? - How are you?</li>
-        <li>Менің атым ... - My name is ...</li>
-        <li>Сіздің атыңыз кім? - What is your name?</li>
-        <li>Қайдан боласыз? - Where are you from?</li>
-        <li>Мен ... келдім. - I am from ...</li>
-        <li>Жасыңыз қаншада? - How old are you?</li>
-        <li>Мен ... жастамын. - I am ... years old.</li>
-        <li>Сіз немен айналысасыз? - What do you do?</li>
-        <li>Мен студентпін. - I am a student.</li>
-        <li>Менің хоббиім - ... - My hobby is ...</li>
-        <li>Сізбен танысқаныма қуаныштымын. - Nice to meet you.</li>
-        <li>Кездескенше! - See you!</li>
-      </ul>
-    </div>
-    <div class="buttons-titles">
-      <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
-    </div>
-  </mat-expansion-panel>
-  <mat-expansion-panel class="PhrazaMaterial" *ngIf="isPhraza">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>Саяхат фразалары - Travel Phrases</b>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="learn-material">
-      <h2>Қазақша - In Kazakh</h2>
-      <ul>
-        <li>Сәлем! - Hello!</li>
-        <li>Қалың қалай? - How are you?</li>
-        <li>Менің атым ... - My name is ...</li>
-        <li>Сіздің атыңыз кім? - What is your name?</li>
-        <li>Қайдан боласыз? - Where are you from?</li>
-        <li>Мен ... келдім. - I am from ...</li>
-        <li>Жасыңыз қаншада? - How old are you?</li>
-        <li>Мен ... жастамын. - I am ... years old.</li>
-        <li>Сіз немен айналысасыз? - What do you do?</li>
-        <li>Мен студентпін. - I am a student.</li>
-        <li>Менің хоббиім - ... - My hobby is ...</li>
-        <li>Сізбен танысқаныма қуаныштымын. - Nice to meet you.</li>
-        <li>Кездескенше! - See you!</li>
-      </ul>
-    </div>
-    <div class="buttons-titles">
-      <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+        <mat-accordion>
+          <div *ngFor="let item of languageData">
+            <mat-expansion-panel class="SozdikaMaterial" *ngIf="isSozdik&&(item.type=='sozdik')">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <b>{{item.title}}</b>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div [innerHTML]="item.content"></div>
+              <!-- <div class="learn-material">
+              <h2>Ауа райы туралы жалпы сөздер - General Weather Words</h2>
+              <ul>
+                <li>Ауа райы - Weather</li>
+                <li>Температура - Temperature</li>
+                <li>Ылғалдылық - Humidity</li>
+                <li>Қысым - Pressure</li>
+                <li>Жел - Wind</li>
+                <li>Бұлттылық - Cloudiness</li>
+                <li>Жауын-шашын - Precipitation</li>
+                <li>Климат - Climate</li>
+              </ul>
+              <h2>Ауа райының түрлері - Types of Weather</h2>
+              <ul>
+                <li>Жылы - Warm</li>
+                <li>Суық - Cold</li>
+                <li>Ыстық - Hot</li>
+                <li>Салқын - Cool</li>
+                <li>Құрғақ - Dry</li>
+                <li>Ылғалды - Humid</li>
+                <li>Қарлы - Snowy</li>
+                <li>Жаңбырлы - Rainy</li>
+              </ul>
+              <h2>Ауа райы құбылыстары - Weather Phenomena</h2>
+              <ul>
+                <li>Қар - Snow</li>
+                <li>Жаңбыр - Rain</li>
+                <li>Нөсер жаңбыр - Heavy Rain</li>
+                <li>Бұршақ - Hail</li>
+                <li>Тұман - Fog</li>
+                <li>Шаңды боран - Dust Storm</li>
+                <li>Найзағай - Thunderstorm</li>
+                <li>Күн күркіреу - Thunder</li>
+              </ul>
+              <h2>Жел туралы - About Wind</h2>
+              <ul>
+                <li>Жел күші - Wind Force</li>
+                <li>Желдің жылдамдығы - Wind Speed</li>
+                <li>Солтүстік жел - North Wind</li>
+                <li>Оңтүстік жел - South Wind</li>
+                <li>Батыс жел - West Wind</li>
+                <li>Шығыс жел - East Wind</li>
+                <li>Боран - Blizzard</li>
+                <li>Құйын - Whirlwind</li>
+              </ul>
+              <h2>Аспан жағдайы - Sky Conditions</h2>
+              <ul>
+                <li>Ашық - Clear</li>
+                <li>Бұлтты - Cloudy</li>
+                <li>Жартылай бұлтты - Partly Cloudy</li>
+                <li>Күн ашық - Sunny</li>
+                <li>Қара бұлтты - Overcast</li>
+                <li>Жұлдызды - Starry</li>
+              </ul>
+              <h2>Ауа райын болжау - Weather Forecast</h2>
+              <ul>
+                <li>Ауа райын болжау - Weather Forecast</li>
+                <li>Синоптикалық карта - Synoptic Map</li>
+                <li>Ауа температурасы - Air Temperature</li>
+                <li>Күннің ұзақтығы - Day Length</li>
+                <li>Ультракүлгін индексі - UV Index</li>
+                <li>Жауын-шашын мөлшері - Precipitation Amount</li>
+              </ul>
+              <h2>Мезгілдер - Seasons</h2>
+              <ul>
+                <li>Көктем - Spring</li>
+                <li>Жаз - Summer</li>
+                <li>Күз - Autumn</li>
+                <li>Қыс - Winter</li>
+              </ul>
+            </div> -->
+              <div class="buttons-titles">
+                <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
+              </div>
+            </mat-expansion-panel>
+          </div>
+        </mat-accordion>
+
+        <mat-accordion>
+          <div *ngFor="let item of languageData">
+            <mat-expansion-panel class="PhrazaMaterial" *ngIf="isPhraza&&(item.type=='phraza')">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <b>{{item.title}}</b>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div [innerHTML]="item.content"></div>
+              <!-- <div class="learn-material">
+              <h2>Қазақша - In Kazakh</h2>
+              <ul>
+                <li>Сәлем! - Hello!</li>
+                <li>Қалың қалай? - How are you?</li>
+                <li>Менің атым ... - My name is ...</li>
+                <li>Сіздің атыңыз кім? - What is your name?</li>
+                <li>Қайдан боласыз? - Where are you from?</li>
+                <li>Мен ... келдім. - I am from ...</li>
+                <li>Жасыңыз қаншада? - How old are you?</li>
+                <li>Мен ... жастамын. - I am ... years old.</li>
+                <li>Сіз немен айналысасыз? - What do you do?</li>
+                <li>Мен студентпін. - I am a student.</li>
+                <li>Менің хоббиім - ... - My hobby is ...</li>
+                <li>Сізбен танысқаныма қуаныштымын. - Nice to meet you.</li>
+                <li>Кездескенше! - See you!</li>
+              </ul>
+            </div> -->
+              <div class="buttons-titles">
+                <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
+              </div>
+            </mat-expansion-panel>
+          </div>
+          <!-- <mat-expansion-panel class="PhrazaMaterial" *ngIf="isPhraza">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <b>Саяхат фразалары - Travel Phrases</b>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="learn-material">
+              <h2>Қазақша - In Kazakh</h2>
+              <ul>
+                <li>Сәлем! - Hello!</li>
+                <li>Қалың қалай? - How are you?</li>
+                <li>Менің атым ... - My name is ...</li>
+                <li>Сіздің атыңыз кім? - What is your name?</li>
+                <li>Қайдан боласыз? - Where are you from?</li>
+                <li>Мен ... келдім. - I am from ...</li>
+                <li>Жасыңыз қаншада? - How old are you?</li>
+                <li>Мен ... жастамын. - I am ... years old.</li>
+                <li>Сіз немен айналысасыз? - What do you do?</li>
+                <li>Мен студентпін. - I am a student.</li>
+                <li>Менің хоббиім - ... - My hobby is ...</li>
+                <li>Сізбен танысқаныма қуаныштымын. - Nice to meet you.</li>
+                <li>Кездескенше! - See you!</li>
+              </ul>
+            </div>
+            <div class="buttons-titles">
+              <button class="button" (click)="openQuizDialog()">QUIZ TIME</button>
+            </div>
+          </mat-expansion-panel> -->
+        </mat-accordion>
 
       </div>
     </div>
