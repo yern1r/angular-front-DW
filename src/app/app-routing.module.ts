@@ -6,12 +6,17 @@ import { MapComponent } from './core/home/map/map-app/map-page.component';
 import { MapWithOthersComponent } from './core/home/map/map-with-others/map-with-others.component';
 import { CulturePageComponent } from './core/home/culture/culture-page/culture-page.component';
 
+import { SignUpModalComponent } from './core/auth/sign-up-modal/sign-up-modal.component';
+import { AuthGuard } from './core/home/auth-guard/auth-guard.component';
+
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent},
+  // {path: '', component: HomePageComponent},
   {path: 'qazaqTili', component: QazaqTilPageComponent},
   {path: 'qazaqTarihMap', component: MapWithOthersComponent},
   {path: 'qazaqDastur', component: CulturePageComponent},
+  { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: 'signup', component: SignUpModalComponent },
 ];
 
 @NgModule({

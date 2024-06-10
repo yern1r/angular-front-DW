@@ -1,4 +1,5 @@
-<!-- <app-home-page-header></app-home-page-header>
 
-<app-home-page-footer></app-home-page-footer> -->
+<app-sign-up-modal *ngIf="!authService.isUserAuthorized()"></app-sign-up-modal>
+
+
 <router-outlet></router-outlet>

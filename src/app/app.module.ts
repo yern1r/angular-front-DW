@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpModalComponent } from './core/auth/sign-up-modal/sign-up-modal.component';
@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from './core/home/map/map-app/map-page.component';
 import { MapWithOthersComponent } from './core/home/map/map-with-others/map-with-others.component';
 import { HomePageFooterComponent } from './core/home/home-page/footer/home-page-footer/home-page-footer.component';
-import { HomePageHeaderComponent } from './core/home/home-page/header/home-page-header/home-page-header.component';
+
 import { HomePageComponent } from './core/home/home-page/home-page/home-page.component';
 import { QazaqTilPageComponent } from './core/home/language/qazaq-til-page.component';
 import { CulturePageComponent } from './core/home/culture/culture-page/culture-page.component';
@@ -26,6 +26,11 @@ import { DialogModule } from '@angular/cdk/dialog';
 import { OpenDialogComponent } from './core/home/culture/open-dialog/open-dialog.component';
 import { OpenDialogSandyqComponent } from './core/home/culture/open-dialog-sandyq/open-dialog-sandyq.component';
 import { OpenDialogBesikComponent } from './core/home/culture/open-dialog-besik/open-dialog-besik.component';
+import { AuthService } from './core/auth/sign-up-modal/services/auth.service';
+import { AuthGuard } from './core/home/auth-guard/auth-guard.component';
+import { HomePageHeaderComponent } from './core/home/home-page/header/home-page-header/home-page-header.component';
+
+
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -48,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     OpenDialogComponent,
     OpenDialogSandyqComponent,
     OpenDialogBesikComponent,
+  
     
   ],
   imports: [
@@ -74,6 +80,13 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       }
     }),
   ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, AuthGuard ,
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },],
+  bootstrap: [AppComponent],
+  //@ts-ignore
+  // entryComponents: [SignUpModalComponent], 
 })
 export class AppModule { }

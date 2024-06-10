@@ -1,47 +1,34 @@
-
 <app-home-page-header></app-home-page-header>
 <div class="background_img" style="padding-bottom: 50%;">
   <div class="container">
-    
-      <div class="module-history">
-        <img
-          src="../../../../../assets/images/alash.png"
-          alt=""
-          class="image"
-        />
-        <img src="../../../../../assets/images/person.png"  class="secondImg1 image"/> 
-        <div class="middle">
-          <div class="text" (click)="navigateTarih()" style="cursor: pointer;">Kazakh Individuals</div>
-        </div> 
-        <h1>Qazaqtyñ ūly tūlğalary</h1>
+    <div class="module-history">
+      <img src="../../../../../assets/images/alash.png" alt="" class="image" />
+      <img src="../../../../../assets/images/person.png" class="secondImg1 image" />
+      <div class="middle">
+        <div class="text" (click)="navigateTarih()" style="cursor: pointer;">Kazakh Individuals</div>
       </div>
+      <h1>Қазақтың ұлы тұлғалары</h1>
+    </div>
 
-      <div class="module-language">
-        <img
-          src="../../../../../assets/images/baiterek.png"
-          alt=""
-          class="image"
-        />
-        <img src="../../../../../assets/images/til.png" class="secondImg2 image"/>
-        <div class="middle">
-          <div class="text" (click)="navigateTil()" style="cursor: pointer;">Kazakh Language</div>
-        </div>
-        <h1>Qazaq tılı</h1>
+    <div class="module-language">
+      <img src="../../../../../assets/images/baiterek.png" alt="" class="image" />
+      <img src="../../../../../assets/images/til.png" class="secondImg2 image" />
+      <div class="middle">
+        <div class="text" (click)="navigateTil()" style="cursor: pointer;">Kazakh Language</div>
       </div>
-   
-      <div class="module-culture">
-        <img
-          src="../../../../../assets/images/kuiz.png"
-          class="image"
-          alt=""
-        />
-        <img src="../../../../../assets/images/dastur.png" class="secondImg3 image"/>
-        <div class="middle">
-          <div class="text" (click)="navigateDastur()">Kazakh Culture</div>
-        </div>
-        <h1>Qazaq dästürı</h1>
+      <h1>Қазақ тілі</h1>
+    </div>
+
+    <div class="module-culture">
+      <img src="../../../../../assets/images/kuiz.png" class="image" alt="" />
+      <img src="../../../../../assets/images/dastur.png" class="secondImg3 image" />
+      <div class="middle">
+        <div class="text" (click)="navigateDastur()" style="cursor: pointer;">Kazakh Culture</div>
       </div>
+      <h1>Қазақтың дәстүрі</h1>
+    </div>
+    
+    <button *ngIf="isLoggedIn" (click)="logout()">Logout</button> <!-- Logout button -->
   </div>
 </div>
 <app-home-page-footer></app-home-page-footer>
-

@@ -16,7 +16,7 @@ $color-alpha: #b78846;
     justify-content: center;
     align-items: center;
     .title-qazaq-tili{
-        background-image: url('../../../../../assets/images/qaz.jpeg');
+        background-image: url('/../../../../assets/images/qaz.jpeg');
         background-size:cover;
         background-repeat: no-repeat;
         background-position-y: 30%;
@@ -169,7 +169,7 @@ $color-alpha: #b78846;
 }
 
 .middlePart{
-  background-image: url('../../../../../assets/images/home.jpeg');
+  background-image: url('/../../../../assets/images/home.jpeg');
   background-size: contain;
   background-repeat: no-repeat;
     display: flex;

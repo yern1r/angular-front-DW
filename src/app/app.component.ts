@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {first, Subject, takeUntil, timer} from 'rxjs';
 import { DestroyableComponent } from './shared/components/destroyable/destroyable.component';
+import { AuthService } from './core/auth/sign-up-modal/services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,7 +25,8 @@ export class AppComponent  extends DestroyableComponent implements OnInit, OnDes
     @Inject(PLATFORM_ID)
     private platformId: Object,
     private router: Router,
-    private matDialog: MatDialog,) 
+    private matDialog: MatDialog,
+    public authService: AuthService) 
     {
     // translate.setDefaultLang('en');
     // translate.use('en');
@@ -36,6 +38,7 @@ export class AppComponent  extends DestroyableComponent implements OnInit, OnDes
     this.setPageLoadFlag(false);
     this.setPagePreloadFlag(false);
     this.setModuleLoadFlag(false);
+    this.authService = authService;
   }
   ngOnInit(): void {
 
@@ -64,5 +67,8 @@ export class AppComponent  extends DestroyableComponent implements OnInit, OnDes
           this.setPagePreloadFlag(false);
         }
       );
+  }
+  get authServicee(): AuthService {
+    return this.authService;
   }
 }
